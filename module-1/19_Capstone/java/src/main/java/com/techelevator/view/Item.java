@@ -1,18 +1,29 @@
 package com.techelevator.view;
+import java.math.BigDecimal;
 
-/**
- * 
- * public final class Item {
+ 
+ public class Item  {
 
 	
-	private final String slotId;
-	private final String productName;
-	private final double price;
+	private  String slotId;
+	private  String productName;
+	private  BigDecimal price;
+	private  String category;
+
 	
-	public item (String slotId, String productName, double price) {
+	
+	
+	public void item(String slotId, String productName, BigDecimal price) {
 		this.slotId = slotId;
 		this.productName = productName;
 		this.price = price;
+		
+		
+	}
+	
+	public void item(String category) {
+		this.category = category;
+		
 	}
 
 	public String getSlotId() {
@@ -23,11 +34,20 @@ package com.techelevator.view;
 		return productName;
 	}
 
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
 
+	
+	public String getCategory() {
+		return category;
+	}
+
+	
+	
+	
+
 }
 
- */
+ 
