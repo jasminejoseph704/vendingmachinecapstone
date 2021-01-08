@@ -16,13 +16,29 @@ public class Item {
 		this.productName = productName;
 		this.price = price;
 	}
-	
+	//Setters
+	public void setSlotId(String slotId) {
+		this.slotId = slotId;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	public void item(String category) {
 		this.category = category;
 	}
 
 	
-	//Getters, No Setters
+	//Getters
 	public String getSlotId() {
 		return slotId;
 	}
