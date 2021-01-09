@@ -18,7 +18,7 @@ public class Inventory {
 	// METHOD: getItem(slotId);
 	public void getItem(String slotId) {
 		System.out.println("Items available: ");
-		for(item item : vendingMachine.getInventory().getItem()) {
+		for(item item : VendingMachine.getInventory().getItem()) {
 		System.out.println(getProductName(item));
 		}
 		
