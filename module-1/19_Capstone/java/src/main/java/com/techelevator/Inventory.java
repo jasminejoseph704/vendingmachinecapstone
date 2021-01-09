@@ -30,7 +30,7 @@ public class Inventory {
 	public void printAll() {
 		System.out.println("Items available: ");
 		for (Item item : inventory) {
-			System.out.println("available" + item);
+			System.out.println(item);
 
 				}
 	}

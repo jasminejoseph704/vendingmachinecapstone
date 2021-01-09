@@ -2,6 +2,7 @@ package com.techelevator;
 
 import java.io.File;
 import java.util.Map;
+import java.util.Scanner;
 
 import com.techelevator.view.Menu;
 
@@ -14,9 +15,12 @@ public class VendingMachineCLI {
 	//INSTANCE VARIABLES "Attributes"
 	private Menu menu;
 	
-	VendingMachineLoader loader = new VendingMachineLoader();
+	private Scanner userInput = new Scanner(System.in);
+	
+	private File file = new File("vendingmachine.csv");
+	private VendingMachineLoader loader = new VendingMachineLoader(file);
 	private Inventory inventory = loader.loadInventory();
-	File file = new File("vendingmachine.csv");
+	
 
 	//CONSTRUCTOR
 	public VendingMachineCLI(Menu menu) {
