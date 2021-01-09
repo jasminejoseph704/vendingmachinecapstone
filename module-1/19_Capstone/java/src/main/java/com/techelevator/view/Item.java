@@ -9,14 +9,16 @@ public class Item {
 	private String productName;
 	private BigDecimal price;
 	private String category;
-	private int quantity;
 
-	// CONSTRUCTOR
-	public void item(String slotId, String productName, BigDecimal price, int quantity) {
+	// CONSTRUCTORS
+	public void item(String slotId, String productName, BigDecimal price) {
 		this.slotId = slotId;
 		this.productName = productName;
 		this.price = price;
-		this.quantity = quantity;
+	}
+	
+	public void itemSelection(String category) {
+		this.category = category;
 	}
 
 	// SETTERS
@@ -35,11 +37,7 @@ public class Item {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
-
+	
 	// GETTERS
 	public String getSlotId() {
 		return slotId;
@@ -57,10 +55,5 @@ public class Item {
 		return category;
 	}
 
-	public int getQuantity() {
-		return quantity;
-	}
-
 }
-
  
