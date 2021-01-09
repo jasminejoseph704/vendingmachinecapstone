@@ -28,6 +28,7 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
+				inventory.printAllTwo();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			}
@@ -42,5 +43,6 @@ public class VendingMachineCLI {
 		Inventory i = loader.loadInventory();
 		VendingMachineCLI cli = new VendingMachineCLI(menu, i);
 		cli.run();
-	}
+			}
+
 }

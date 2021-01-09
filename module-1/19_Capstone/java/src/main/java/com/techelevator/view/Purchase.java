@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class Purchase {
 
 	
-	
+	/*
 	// METHOD
 	public BigDecimal getTotal() {
 		if (quantity > 0 && quantity < 5) {
@@ -22,5 +22,5 @@ public abstract class Purchase {
 		return "Slot ID: " + this.getSlotId() + " Product Name: " + this.getProductName() + " Price: $"
 				+ this.getPrice() + " Qty: " + getQuantity() + " Total: $" + this.getTotal();
 	}
-	
+	*/
 }

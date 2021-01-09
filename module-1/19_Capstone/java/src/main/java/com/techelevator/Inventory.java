@@ -15,19 +15,29 @@ public class Inventory {
 		this.inventory = inputList;
 	}
 
-
 	// METHOD: getItem(slotId);
 	public void getItem(String slotId) {
-		System.out.println("Items available: ");
-		for(item item : VendingMachine.getInventory().getItem()) {
-		System.out.println(getProductName(item));
-		}
-		
-	//METHOD: printAll()
-	private String getProductName(Item item) {
-		return item.getSlotId() + "" + item.getProductName() + "" + item.getPrice();
+	
+		for (Item item : inventory) {
+			if (slotId.equalsIgnoreCase(item.getSlotId())) {
+				System.out.println("Items available: "    );
+			}
 		}
 	}
 
+	// METHOD: printAll()
+	
+	public void printAllTwo() {
+		System.out.println("Items available: ");
+		for (Item item : inventory) {
+			System.out.println(item);
+
+				}
+	}
+}
 
 
+
+
+//String getProductName(Item item) {
+//return item.getSlotId() + "" + item.getProductName() + "" + item.getPrice();
