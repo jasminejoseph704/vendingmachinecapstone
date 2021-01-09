@@ -13,12 +13,15 @@ public class VendingMachineCLI {
 
 	//INSTANCE VARIABLES "Attributes"
 	private Menu menu;
-	private Inventory inventory;
+	
+	VendingMachineLoader loader = new VendingMachineLoader();
+	private Inventory inventory = loader.loadInventory();
+	File file = new File("vendingmachine.csv");
 
 	//CONSTRUCTOR
-	public VendingMachineCLI(Menu menu, Inventory inventory) {
+	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
-		this.inventory = inventory;
+		//this.inventory = inventory;
 	}
 
 	//RUN METHOD
@@ -28,7 +31,7 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				// display vending machine items
-				inventory.printAllTwo();
+				inventory.printAll();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			}
@@ -38,10 +41,11 @@ public class VendingMachineCLI {
 	//RUN INVENTORY FILE: METHOD
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
-		File file = new File("vendingmachine.csv");
-		VendingMachineLoader loader = new VendingMachineLoader(file);
-		Inventory i = loader.loadInventory();
-		VendingMachineCLI cli = new VendingMachineCLI(menu, i);
+		
+		//VendingMachineLoader loader = new VendingMachineLoader(file);
+	
+		//Inventory i = VendingMachineloader.loadInventory();
+		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
 			}
 

@@ -27,10 +27,10 @@ public class Inventory {
 
 	// METHOD: printAll()
 	
-	public void printAllTwo() {
+	public void printAll() {
 		System.out.println("Items available: ");
 		for (Item item : inventory) {
-			System.out.println(item);
+			System.out.println("available" + item);
 
 				}
 	}

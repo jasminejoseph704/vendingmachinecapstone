@@ -11,11 +11,12 @@ import com.techelevator.view.*;
 public class VendingMachineLoader {
 
 	// INSTANCE VARIABLE "Attribute"
-	private File csvFile;
+
+	// private File csvFile;
 
 	// CONSTRUCTOR
-	public VendingMachineLoader(File csvFile) {
-		this.csvFile = csvFile;
+	public VendingMachineLoader() {
+		// this.csvFile = csvFile;
 	}
 
 	// NOTE this changed to 'PROTECTED' here to facilitate testing!
@@ -65,13 +66,14 @@ public class VendingMachineLoader {
 
 	public Inventory loadInventory() {
 		List<Item> temp = new ArrayList<Item>();
-		try (Scanner fileScanner = new Scanner(this.csvFile)) {
+		try (Scanner fileScanner = new Scanner(new File("vendingmachine.csv"))) {
 			while (fileScanner.hasNextLine()) {
 				String line = fileScanner.nextLine();
 				Item i = convertLineIntoItem(line);
 				if (i != null) {
 					temp.add(i);
 				}
+				
 			}
 		} catch (FileNotFoundException e) {
 
