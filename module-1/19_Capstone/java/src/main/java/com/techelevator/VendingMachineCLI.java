@@ -12,7 +12,8 @@ public class VendingMachineCLI {
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
 
 	private Menu menu;
-    private Inventory inventory;
+	private Inventory inventory;
+
 	public VendingMachineCLI(Menu menu, Inventory inventory) {
 		this.menu = menu;
 		this.inventory = inventory;
@@ -33,9 +34,9 @@ public class VendingMachineCLI {
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
 		File file = new File("vendingmachine.csv");
-	    VendingMachineLoader loader = new VendingMachineLoader(file);
-	    Inventory i = loader.loadInventory();
-		VendingMachineCLI cli = new VendingMachineCLI(menu,i);
+		VendingMachineLoader loader = new VendingMachineLoader(file);
+		Inventory i = loader.loadInventory();
+		VendingMachineCLI cli = new VendingMachineCLI(menu, i);
 		cli.run();
 	}
 }

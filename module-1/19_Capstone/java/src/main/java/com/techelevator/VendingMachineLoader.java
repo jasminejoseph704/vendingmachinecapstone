@@ -10,21 +10,21 @@ import com.techelevator.view.*;
 
 public class VendingMachineLoader {
 
-	// Instance Variable "Attributes"
+	// INSTANCE VARIABLE "Attribute"
 	private File csvFile;
 
-	// Constructor
+	// CONSTRUCTOR
 	public VendingMachineLoader(File csvFile) {
 		this.csvFile = csvFile;
 	}
 
-// NOTE this changed to protected here to facilitate testing!
+	// NOTE this changed to 'PROTECTED' here to facilitate testing!
 	protected Item convertLineIntoItem(String line) {
 		String[] components = line.split("\\|");
-
 		if (components.length != 4) {
 			return null;
 		}
+
 		String slotId = components[0].trim();
 		String productName = components[1].trim();
 		String price = components[2].trim();
@@ -36,6 +36,7 @@ public class VendingMachineLoader {
 			candy.setProductName(productName);
 			candy.setPrice(new BigDecimal(price));
 			return candy;
+
 		} else if (category.toLowerCase().equals("Chips")) {
 			Chips chips = new Chips();
 			chips.setSlotId(slotId);
@@ -49,34 +50,32 @@ public class VendingMachineLoader {
 			beverage.setProductName(productName);
 			beverage.setPrice(new BigDecimal(price));
 			return beverage;
+
 		} else if (category.toLowerCase().equals("Gum")) {
 			Gum gum = new Gum();
 			gum.setSlotId(slotId);
 			gum.setProductName(productName);
 			gum.setPrice(new BigDecimal(price));
 			return gum;
+
 		} else {
 			return null;
 		}
-
 	}
+
 	public Inventory loadInventory() {
-		 List<Item> temp = new ArrayList<Item>();
-		try(Scanner fileScanner = new Scanner(this.csvFile)){
-			while(fileScanner.hasNextLine()) {
-				String line =fileScanner.nextLine();
+		List<Item> temp = new ArrayList<Item>();
+		try (Scanner fileScanner = new Scanner(this.csvFile)) {
+			while (fileScanner.hasNextLine()) {
+				String line = fileScanner.nextLine();
 				Item i = convertLineIntoItem(line);
-				if(i != null) {
+				if (i != null) {
 					temp.add(i);
 				}
 			}
 		} catch (FileNotFoundException e) {
-			
+
 		}
-		
-		
-		
-		
 		return new Inventory(temp);
-	}   
+	}
 }
