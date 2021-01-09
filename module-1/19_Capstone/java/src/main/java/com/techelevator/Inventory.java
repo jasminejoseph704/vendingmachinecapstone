@@ -13,19 +13,16 @@ public class Inventory {
 	}
 
 	// getItem(slotId);
-	public boolean getItem(String slotId) {
-		boolean correct = ((Inventory) inventory).getItem(slotId);
-		for(Item item : category.getItem()) {
-			if(item.getSlotId().contentEquals(slotId)) {
-				if(total >= item.getPrice()) {
-					total -= item.getPrice();
-					return true;
-				} else {
-					return false;
-				}
-			}
+	public void getItem(String slotId) {
+		System.out.println("Items available: ");
+		
+		for(item item : vendingMachine.getInventory().getItem()) {
+		System.out.println(getProductName(item));
 		}
-			return false;
-		// printAll()
+		
+	// printAll()
+	private String getProductName(Item item) {
+		return item.getSlotId() + "" + item.getProductName() + "" + item.getPrice();
+		}
 	}
 }
