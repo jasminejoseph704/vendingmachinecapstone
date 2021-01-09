@@ -11,15 +11,14 @@ public class Inventory {
 	public Inventory(List<Item> inputList) {
 		this.inventory = inputList;
 	}
-
-	// getItem(slotId);
-	public boolean getItem(String slotId) {
-		boolean correct = inventory.getItem(slotId);
-			if (correct) {
-				System.out.println("vendindmachine.csv");
-			} else {
-				System.out.println("")
-		}
-		// printAll()
-	}
 }
+
+// getItem(slotId);
+/**
+ * public boolean getItem(String slotId) {
+ * 
+ * boolean correct = inventory.getItem(slotId); if (correct) {
+ * System.out.println("vendindmachine.csv"); } else { System.out.println("") }
+ * // printAll()
+ * 
+ */
