@@ -6,19 +6,28 @@ import java.util.List;
 import com.techelevator.view.*;
 
 public class Inventory {
+
+	// Is this an: INSTANCE VARIABLE "Attribute" ?
 	private List<Item> inventory = new ArrayList<Item>();
 
+	// CONSTRUCTOR
 	public Inventory(List<Item> inputList) {
 		this.inventory = inputList;
 	}
-}
 
-// getItem(slotId);
-/**
- * public boolean getItem(String slotId) {
- * 
- * boolean correct = inventory.getItem(slotId); if (correct) {
- * System.out.println("vendindmachine.csv"); } else { System.out.println("") }
- * // printAll()
- * 
- */
+
+	// METHOD: getItem(slotId);
+	public void getItem(String slotId) {
+		System.out.println("Items available: ");
+		for(item item : vendingMachine.getInventory().getItem()) {
+		System.out.println(getProductName(item));
+		}
+		
+	//METHOD: printAll()
+	private String getProductName(Item item) {
+		return item.getSlotId() + "" + item.getProductName() + "" + item.getPrice();
+		}
+	}
+
+
+
