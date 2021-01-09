@@ -4,19 +4,22 @@ import java.math.BigDecimal;
 
 public class Item {
 
-	//Instance Variables "Attributes"
+	// INSTANCE VARIABLES "Attributes"
 	private String slotId;
 	private String productName;
 	private BigDecimal price;
 	private String category;
+	private int quantity;
 
-	//Constructors
-	public void item(String slotId, String productName, BigDecimal price) {
+	// CONSTRUCTOR
+	public void item(String slotId, String productName, BigDecimal price, int quantity) {
 		this.slotId = slotId;
 		this.productName = productName;
 		this.price = price;
+		this.quantity = quantity;
 	}
-	//Setters
+
+	// SETTERS
 	public void setSlotId(String slotId) {
 		this.slotId = slotId;
 	}
@@ -33,12 +36,11 @@ public class Item {
 		this.category = category;
 	}
 
-	public void item(String category) {
-		this.category = category;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
-	
-	//Getters
+	// GETTERS
 	public String getSlotId() {
 		return slotId;
 	}
@@ -53,6 +55,10 @@ public class Item {
 
 	public String getCategory() {
 		return category;
+	}
+
+	public int getQuantity() {
+		return quantity;
 	}
 
 }
