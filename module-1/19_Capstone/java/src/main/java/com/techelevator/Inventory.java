@@ -14,12 +14,18 @@ public class Inventory {
 
 	// getItem(slotId);
 	public boolean getItem(String slotId) {
-		boolean correct = inventory.getItem(slotId);
-			if (correct) {
-				System.out.println("vendindmachine.csv");
-			} else {
-				System.out.println("")
+		boolean correct = ((Inventory) inventory).getItem(slotId);
+		for(Item item : category.getItem()) {
+			if(item.getSlotId().contentEquals(slotId)) {
+				if(total >= item.getPrice()) {
+					total -= item.getPrice();
+					return true;
+				} else {
+					return false;
+				}
+			}
 		}
+			return false;
 		// printAll()
 	}
 }
