@@ -32,8 +32,9 @@ public class VendingMachineCLI {
 	private Inventory inventory = loader.loadInventory();
 
 	// CONSTRUCTOR
-	public VendingMachineCLI(Menu menu) {
+	public VendingMachineCLI(Menu menu, PurchaseMenu purchaseMenu) {
 		this.menu = menu;
+		this.purchaseMenu = purchaseMenu;
 		// this.inventory = inventory;
 	}
 
@@ -49,13 +50,15 @@ public class VendingMachineCLI {
 				while (true) {
 					String purchaseChoice = (String) purchaseMenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 					if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
-
+                        //read input amount
 					} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
-
+                        // call slotId
 					} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
+						//receive change
+						
 					}
 				}
-				// do purchase
+				
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
 				System.exit(0);
 			}
@@ -67,7 +70,7 @@ public class VendingMachineCLI {
 		Menu menu = new Menu(System.in, System.out);
 		PurchaseMenu purchaseMenu = new PurchaseMenu(System.in, System.out);
 
-		VendingMachineCLI cli = new VendingMachineCLI(menu);
+		VendingMachineCLI cli = new VendingMachineCLI(menu,purchaseMenu);
 		cli.run();
 	}
 }
