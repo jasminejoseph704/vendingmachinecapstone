@@ -11,18 +11,15 @@ import com.techelevator.view.*;
 public class VendingMachineLoader {
 
 	// INSTANCE VARIABLE "Attribute"
-  private File inputFile;
-	// private File csvFile;
+	private File inputFile;
 
 	// CONSTRUCTOR
-	
-	public VendingMachineLoader(File inputFile ) {
+	public VendingMachineLoader(File inputFile) {
 		this.inputFile = inputFile;
-		
-		// this.csvFile = csvFile;
 	}
 
 	// NOTE this changed to 'PROTECTED' here to facilitate testing!
+	//DISPLAY SLOTID | PRODUCTNAME | PRICE | CATEGORY: METHOD
 	protected Item convertLineIntoItem(String line) {
 		String[] components = line.split("\\|");
 		if (components.length != 4) {
@@ -35,24 +32,25 @@ public class VendingMachineLoader {
 		String category = components[3].trim();
 
 		if (category.toLowerCase().equals("candy")) {
-			
+
 			return new Candy(slotId, productName, price, category);
 
 		} else if (category.toLowerCase().equals("chip")) {
-			
-			return  new Chips(slotId, productName, price, category);
+
+			return new Chips(slotId, productName, price, category);
 
 		} else if (category.toLowerCase().equals("drink")) {
-			return  new Drink(slotId, productName, price, category);
+			return new Drink(slotId, productName, price, category);
 
 		} else if (category.toLowerCase().equals("gum")) {
-			return  new Gum(slotId, productName, price, category);
+			return new Gum(slotId, productName, price, category);
 
 		} else {
 			return null;
 		}
 	}
-
+	
+	//JASMINE, WHAT DOES THIS METHOD DO FOR US: READS THE CSV FILE
 	public Inventory loadInventory() {
 		List<Item> temp = new ArrayList<Item>();
 		try (Scanner fileScanner = new Scanner(this.inputFile)) {
@@ -62,7 +60,6 @@ public class VendingMachineLoader {
 				if (i != null) {
 					temp.add(i);
 				}
-				
 			}
 		} catch (FileNotFoundException e) {
 

@@ -12,23 +12,22 @@ public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE };
 
-	//INSTANCE VARIABLES "Attributes"
+	// INSTANCE VARIABLES "Attributes"
 	private Menu menu;
-	
+
 	private Scanner userInput = new Scanner(System.in);
-	
+
 	private File file = new File("vendingmachine.csv");
 	private VendingMachineLoader loader = new VendingMachineLoader(file);
 	private Inventory inventory = loader.loadInventory();
-	
 
-	//CONSTRUCTOR
+	// CONSTRUCTOR
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
-		//this.inventory = inventory;
+		// this.inventory = inventory;
 	}
 
-	//RUN METHOD
+	// RUN METHOD
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
@@ -42,15 +41,14 @@ public class VendingMachineCLI {
 		}
 	}
 
-	//RUN INVENTORY FILE: METHOD
+	// RUN INVENTORY FILE: METHOD
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
-		
-		//VendingMachineLoader loader = new VendingMachineLoader(file);
-	
-		//Inventory i = VendingMachineloader.loadInventory();
+
+		// VendingMachineLoader loader = new VendingMachineLoader(file);
+
+		// Inventory i = VendingMachineloader.loadInventory();
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
-			}
-
+	}
 }
