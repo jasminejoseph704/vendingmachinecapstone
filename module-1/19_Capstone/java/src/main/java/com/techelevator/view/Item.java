@@ -11,7 +11,7 @@ public class Item {
 	private String category;
 	private int quantity;
 
-	// CONSTRUCTORS
+	// CONSTRUCTOR
 	public Item(String slotId, String productName, BigDecimal price, String category) {
 		this.slotId = slotId;
 		this.productName = productName;
@@ -19,16 +19,14 @@ public class Item {
 		this.category = category;
 		this.quantity = 5;
 	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+	
+	//METHOD: toSTRING DISPLAY FORMATION
 	public String toString() {
 		return (getSlotId() + " | " + getProductName() + "| " + getPrice() + "| " + "Qty: "+ getQuantity() );
 				
 	}
+	
+	
 	
 	// SETTERS
 	public void setSlotId(String slotId) {
@@ -46,6 +44,11 @@ public class Item {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
 	
 	// GETTERS
 	public String getSlotId() {
@@ -62,6 +65,9 @@ public class Item {
 
 	public String getCategory() {
 		return category;
+	}
+	public int getQuantity() {
+		return quantity;
 	}
 
 }
