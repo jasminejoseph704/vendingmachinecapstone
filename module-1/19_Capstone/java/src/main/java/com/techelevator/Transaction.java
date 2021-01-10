@@ -1,9 +1,7 @@
 package com.techelevator;
-import java.io.InputStream;
-import java.io.PrintStream;
+
 import java.math.BigDecimal;
 import java.util.Scanner;
-
 import com.techelevator.view.*;
 
 public class Transaction extends Item {
@@ -12,16 +10,12 @@ public class Transaction extends Item {
 		super(slotId, productName, price, category);
 		
 	}
-
-    
-	
-
+  
 	public void feedMoney() {
     	Scanner scanner = new Scanner(System.in);
     	System.out.print("Please input money in dollar amount of $1, $2, $5, or $10: ");
     	String moneyInputAsString = scanner.nextLine();
-    	//BigDecimal moneyInput = new BigDecimal(moneyInputAsString);
-    	//System.out.println( "CurrentMoneyProvided: " + moneyInput);
+    	System.out.println( "CurrentMoneyProvided: " + moneyInputAsString);
 }
      /**
       * 
