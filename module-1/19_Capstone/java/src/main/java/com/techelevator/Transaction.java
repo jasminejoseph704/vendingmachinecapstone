@@ -15,7 +15,8 @@ public class Transaction extends Item {
     	Scanner scanner = new Scanner(System.in);
     	System.out.print("Please input money in dollar amount of $1, $2, $5, or $10: ");
     	String moneyInputAsString = scanner.nextLine();
-    	System.out.println( "CurrentMoneyProvided: " + moneyInputAsString);
+    	BigDecimal moneyInput = new BigDecimal(moneyInputAsString);
+    	System.out.println( "CurrentMoneyProvided: " + moneyInput);
 }
      /**
       * 

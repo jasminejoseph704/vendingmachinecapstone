@@ -31,7 +31,7 @@ public class VendingMachineCLI {
 	private File file = new File("vendingmachine.csv");
 	private VendingMachineLoader loader = new VendingMachineLoader(file);
 	private Inventory inventory = loader.loadInventory();
-
+    
 	// CONSTRUCTOR
 	public VendingMachineCLI(Menu menu, PurchaseMenu purchaseMenu) {
 		this.menu = menu;
