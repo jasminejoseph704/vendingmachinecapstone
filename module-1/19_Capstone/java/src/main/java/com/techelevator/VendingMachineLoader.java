@@ -31,36 +31,22 @@ public class VendingMachineLoader {
 
 		String slotId = components[0].trim();
 		String productName = components[1].trim();
-		String price = components[2].trim();
+		BigDecimal price = new BigDecimal(components[2].trim());
 		String category = components[3].trim();
 
-		if (category.toLowerCase().equals("Candy")) {
-			Candy candy = new Candy();
-			candy.setSlotId(slotId);
-			candy.setProductName(productName);
-			candy.setPrice(new BigDecimal(price));
-			return candy;
+		if (category.toLowerCase().equals("candy")) {
+			
+			return new Candy(slotId, productName, price, category);
 
-		} else if (category.toLowerCase().equals("Chips")) {
-			Chips chips = new Chips();
-			chips.setSlotId(slotId);
-			chips.setProductName(productName);
-			chips.setPrice(new BigDecimal(price));
-			return chips;
+		} else if (category.toLowerCase().equals("chip")) {
+			
+			return  new Chips(slotId, productName, price, category);
 
-		} else if (category.toLowerCase().equals("Beverage")) {
-			Beverage beverage = new Beverage();
-			beverage.setSlotId(slotId);
-			beverage.setProductName(productName);
-			beverage.setPrice(new BigDecimal(price));
-			return beverage;
+		} else if (category.toLowerCase().equals("drink")) {
+			return  new Drink(slotId, productName, price, category);
 
-		} else if (category.toLowerCase().equals("Gum")) {
-			Gum gum = new Gum();
-			gum.setSlotId(slotId);
-			gum.setProductName(productName);
-			gum.setPrice(new BigDecimal(price));
-			return gum;
+		} else if (category.toLowerCase().equals("gum")) {
+			return  new Gum(slotId, productName, price, category);
 
 		} else {
 			return null;

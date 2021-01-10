@@ -11,16 +11,17 @@ public class Item {
 	private String category;
 
 	// CONSTRUCTORS
-	public void item(String slotId, String productName, BigDecimal price) {
+	public Item(String slotId, String productName, BigDecimal price, String category) {
 		this.slotId = slotId;
 		this.productName = productName;
 		this.price = price;
-	}
-	
-	public void itemSelection(String category) {
 		this.category = category;
 	}
-
+	public String toString() {
+		return (getSlotId() + " |" + getProductName() + " |" + getPrice() );
+				
+	}
+	
 	// SETTERS
 	public void setSlotId(String slotId) {
 		this.slotId = slotId;
