@@ -5,17 +5,19 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-
 public class Menu {
 
+	// INSTANCE VARIABLES "Attributes"
 	private PrintWriter out;
 	private Scanner in;
 
+	// CONSTRUCTOR
 	public Menu(InputStream input, OutputStream output) {
 		this.out = new PrintWriter(output);
 		this.in = new Scanner(input);
 	}
 
+	// METHOD: USER SELECTION
 	public Object getChoiceFromOptions(Object[] options) {
 		Object choice = null;
 		while (choice == null) {
@@ -25,6 +27,7 @@ public class Menu {
 		return choice;
 	}
 
+	// METHOD: TRY / CATCH DISPLAY MENU
 	private Object getChoiceFromUserInput(Object[] options) {
 		Object choice = null;
 		String userInput = in.nextLine();
@@ -34,7 +37,8 @@ public class Menu {
 				choice = options[selectedOption - 1];
 			}
 		} catch (NumberFormatException e) {
-			// eat the exception, an error message will be displayed below since choice will be null
+			// eat the exception, an error message will be displayed below since choice will
+			// be null
 		}
 		if (choice == null) {
 			out.println("\n*** " + userInput + " is not a valid option ***\n");
@@ -42,6 +46,7 @@ public class Menu {
 		return choice;
 	}
 
+	// METHOD: FLUSH TO SAVE WORK
 	private void displayMenuOptions(Object[] options) {
 		out.println();
 		for (int i = 0; i < options.length; i++) {
@@ -50,6 +55,6 @@ public class Menu {
 		}
 		out.print("\nPlease choose an option >>> ");
 		out.flush();
-	
+
 	}
 }
