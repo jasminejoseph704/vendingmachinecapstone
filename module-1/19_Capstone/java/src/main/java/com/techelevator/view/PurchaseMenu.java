@@ -4,8 +4,17 @@ import java.math.BigDecimal;
 import java.util.List;
 
 
-public abstract class Purchase {
+public class PurchaseMenu {
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/*
 	// METHOD
