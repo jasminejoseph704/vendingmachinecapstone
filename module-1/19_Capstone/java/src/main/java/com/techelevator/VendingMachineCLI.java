@@ -12,7 +12,14 @@ public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
-	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT };
+	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE,
+			MAIN_MENU_OPTION_EXIT };
+
+	private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Feed Money";
+	private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select Product";
+	private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Finish Transaction";
+	private static final String[] PURCHASE_MENU_OPTIONS = { PURCHASE_MENU_OPTION_FEED_MONEY,
+			PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION };
 
 	// INSTANCE VARIABLES "Attributes"
 	private Menu menu;
@@ -39,20 +46,27 @@ public class VendingMachineCLI {
 				// display vending machine items
 				inventory.printAll();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
+				while (true) {
+					String purchaseChoice = (String) purchaseMenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+					if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
+
+					} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
+
+					} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
+					}
+				}
 				// do purchase
-			} else if(choice.equals(MAIN_MENU_OPTION_EXIT)){
+			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
 				System.exit(0);
-		}
+			}
 		}
 	}
 
 	// RUN INVENTORY FILE: METHOD
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
+		PurchaseMenu purchaseMenu = new PurchaseMenu(System.in, System.out);
 
-		// VendingMachineLoader loader = new VendingMachineLoader(file);
-
-		// Inventory i = VendingMachineloader.loadInventory();
 		VendingMachineCLI cli = new VendingMachineCLI(menu);
 		cli.run();
 	}
