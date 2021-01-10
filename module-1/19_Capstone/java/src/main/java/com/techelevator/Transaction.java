@@ -1,7 +1,7 @@
 package com.techelevator;
+
 import java.math.BigDecimal;
 import java.util.Scanner;
-
 import com.techelevator.view.*;
 
 public class Transaction extends Item {

@@ -7,6 +7,10 @@ import java.util.Scanner;
 import com.techelevator.view.Menu;
 import com.techelevator.view.PurchaseMenu;
 
+
+
+
+
 public class VendingMachineCLI {
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -56,10 +60,8 @@ public class VendingMachineCLI {
                         // call slotId
 					} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 						//receive change
-						
 					}
 				}
-				
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
 				System.exit(0);
 			}
