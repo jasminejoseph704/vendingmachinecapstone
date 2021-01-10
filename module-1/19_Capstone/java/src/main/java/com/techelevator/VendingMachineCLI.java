@@ -22,7 +22,7 @@ public class VendingMachineCLI {
 			PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION };
 
 	// INSTANCE VARIABLES "Attributes"
-
+    Transaction balance = new Transaction();
 	private Menu menu;
 	private PurchaseMenu purchaseMenu;
 
@@ -31,6 +31,7 @@ public class VendingMachineCLI {
 	private File file = new File("vendingmachine.csv");
 	private VendingMachineLoader loader = new VendingMachineLoader(file);
 	private Inventory inventory = loader.loadInventory();
+	
     
 	// CONSTRUCTOR
 	public VendingMachineCLI(Menu menu, PurchaseMenu purchaseMenu) {
@@ -50,12 +51,12 @@ public class VendingMachineCLI {
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				while (true) {
 					String purchaseChoice = (String) purchaseMenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
-					if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
-						// read input amount
-
-					} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
+					if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
+						// read input amountS
+                        balance.feedMoney();
+					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 						// call slotId
-					} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
+					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 						// receive change
 					}
 				}
