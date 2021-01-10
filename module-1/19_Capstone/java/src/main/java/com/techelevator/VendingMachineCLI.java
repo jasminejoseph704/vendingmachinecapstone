@@ -22,8 +22,13 @@ public class VendingMachineCLI {
 			PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION };
 
 	// INSTANCE VARIABLES "Attributes"
+	
 	private Menu menu;
 	private PurchaseMenu purchaseMenu;
+	
+	
+	
+	
 
 	private Scanner userInput = new Scanner(System.in);
 
@@ -32,10 +37,10 @@ public class VendingMachineCLI {
 	private Inventory inventory = loader.loadInventory();
 
 	// CONSTRUCTOR
-	public VendingMachineCLI(Menu menu, PurchaseMenu purchaseMenu) {
+	public VendingMachineCLI(Menu menu, PurchaseMenu purchaseMenu ) {
 		this.menu = menu;
 		this.purchaseMenu = purchaseMenu;
-		// this.inventory = inventory;
+		
 	}
 
 	// RUN METHOD
@@ -47,6 +52,8 @@ public class VendingMachineCLI {
 				// display vending machine items
 				inventory.printAll();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
+			 
+			 
 				while (true) {
 					String purchaseChoice = (String) purchaseMenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 					if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
@@ -70,8 +77,9 @@ public class VendingMachineCLI {
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);
 		PurchaseMenu purchaseMenu = new PurchaseMenu(System.in, System.out);
+		
 
-		VendingMachineCLI cli = new VendingMachineCLI(menu,purchaseMenu);
+		VendingMachineCLI cli = new VendingMachineCLI(menu,purchaseMenu );
 		cli.run();
 	}
 }
