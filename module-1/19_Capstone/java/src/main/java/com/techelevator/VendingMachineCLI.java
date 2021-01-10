@@ -51,6 +51,7 @@ public class VendingMachineCLI {
 					String purchaseChoice = (String) purchaseMenu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 					if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
                         //read input amount
+						
 					} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
                         // call slotId
 					} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
