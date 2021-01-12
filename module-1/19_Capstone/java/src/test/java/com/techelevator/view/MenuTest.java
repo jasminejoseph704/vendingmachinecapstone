@@ -1,5 +1,10 @@
 package com.techelevator.view;
 
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
@@ -11,7 +16,7 @@ import org.junit.runners.MethodSorters;
 
 import com.techelevator.view.Menu;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 public class MenuTest {
 
 	private ByteArrayOutputStream output;
