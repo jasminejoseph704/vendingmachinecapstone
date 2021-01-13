@@ -20,9 +20,11 @@ public class VendingMachineCLI {
 	private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Finish Transaction";
 	private static final String[] PURCHASE_MENU_OPTIONS = { PURCHASE_MENU_OPTION_FEED_MONEY,
 			PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION };
+	
 
 	// INSTANCE VARIABLES "Attributes"
     Transaction balance = new Transaction();
+    
 	private Menu menu;
 	private PurchaseMenu purchaseMenu;
 
@@ -54,6 +56,7 @@ public class VendingMachineCLI {
 					if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
 						// read input amountS
                         balance.feedMoney();
+                        System.out.println( "Current Money Provided: " + balance.getBalance() + ".00");
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 						// call slotId
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
