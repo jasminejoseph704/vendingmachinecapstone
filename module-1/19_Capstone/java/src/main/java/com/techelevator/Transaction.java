@@ -31,9 +31,15 @@ public class Transaction {
 			System.out.println("You may only input money in dollar amounts of $1, $2, $5,or $10: ");
 		}
 	}
+ 
 }
 
 /**
+ * 
+ *   category.getItem()) { if (item.getslotID().equals(slotID)) { if (balance >=
+		 item.getPrice()) { balance -= item.getPrice(); return true; } else { return
+		  false; } } } return false; }
+ * 
  * 
  * MAYBE THIS CODE WILL SUFFICE, IT HAS THREE PARTS SET A MAX AMOUNT FEED
  * MACHINE GET ITEM
@@ -62,7 +68,7 @@ public class Transaction {
  * balance = 0; return changeToGive; }
  * 
  * 
- * //METHOD: DELIVER ITEM public boolean getItem(String slotID) { // Go through
+ * METHOD: DELIVER ITEM public boolean getItem(String slotID) { // Go through
  * all items until finding the chosen one, // then deduct the cost and return
  * true only if there // is enough balance. for (ProductDetail item :
  * category.getItem()) { if (item.getslotID().equals(slotID)) { if (balance >=

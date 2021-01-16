@@ -58,6 +58,9 @@ public class VendingMachineCLI {
                         balance.feedMoney();
                         System.out.println( "Current Money Provided: " + balance.getBalance() + ".00");
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
+						inventory.printAll();
+						System.out.print("\n");
+						inventory.getItem(purchaseChoice);
 						// call slotId
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 						// receive change
