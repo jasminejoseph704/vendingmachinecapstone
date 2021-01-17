@@ -13,6 +13,10 @@ public class Transaction {
 
 	}
 	private BigDecimal balance = new BigDecimal(0) ;
+	private BigDecimal moneyInput = new BigDecimal(0);
+	public BigDecimal getMoneyInput() {
+		return moneyInput;
+	}
 	public BigDecimal getBalance() {
 		return balance;
 	}

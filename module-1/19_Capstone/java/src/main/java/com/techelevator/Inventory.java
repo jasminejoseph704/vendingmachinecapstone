@@ -43,8 +43,13 @@ public class Inventory {
 				System.out.println("The item you have selected is " + item.getSlotId() + " | " + item.getProductName()
 						+ "| " + item.getPrice() + "| " + "Qty: " + item.getQuantity());
 				if (item.getCategory().equalsIgnoreCase("Candy")) {
+					if(item.getPrice().compareTo(balance.getBalance())==1);
+	             BigDecimal newBalance;
+	             newBalance = balance.getBalance().subtract(balance.getMoneyInput());
 			    candy.messageSound();
+			    System.out.println("Your current balance is: "+ newBalance);
 			} else if (item.getCategory().equalsIgnoreCase("Chips")) {
+			
 				chips.messageSound();
 			} else if (item.getCategory().equalsIgnoreCase("Drink")){
 				drink.messageSound();
@@ -53,7 +58,8 @@ public class Inventory {
 		}
 	}
 	}
-
+	
+	
 	// public void getItem(String slotId) {
 	// for (Item item : inventory) {
 	// if (slotId.equalsIgnoreCase(item.getSlotId())) {
