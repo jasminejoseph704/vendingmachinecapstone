@@ -43,7 +43,7 @@ public class VendingMachineCLI {
 	}
 
 	// RUN METHOD
-	public void run() {
+	public void run()  {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
@@ -73,7 +73,7 @@ public class VendingMachineCLI {
 	}
 
 	// RUN INVENTORY FILE: METHOD
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		Menu menu = new Menu(System.in, System.out);
 		PurchaseMenu purchaseMenu = new PurchaseMenu(System.in, System.out);
 

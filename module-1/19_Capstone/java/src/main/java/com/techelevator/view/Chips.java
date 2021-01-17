@@ -10,7 +10,7 @@ public class Chips extends Item {
 	}
 
 	// METHOD: MESSAGE SOUND
-	public String messageSound() {
-		return (super.getCategory() + " Crunch Crunch, Yum!");
+	public void messageSound() {
+		System.out.println ("Crunch Crunch, Yum!");
 	}
 }

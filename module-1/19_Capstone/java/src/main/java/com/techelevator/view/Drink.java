@@ -10,7 +10,7 @@ public class Drink extends Item {
 	}
 
 	// METHOD: MESSAGE SOUND
-	public String messageSound() {
-		return (super.getCategory() + " Glug Glug, Yum!");
+	public void messageSound() {
+		System.out.println ( "Glug Glug, Yum!");
 	}
 }

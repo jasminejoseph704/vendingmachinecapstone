@@ -10,7 +10,7 @@ public class Gum extends Item {
 	}
 
 	// METHOD: MESSAGE SOUND
-	public String messageSound() {
-		return (super.getCategory() + " Chew Chew, Yum!");
+	public void messageSound() {
+		System.out.println ("Chew Chew, Yum!");
 	}
 }

@@ -10,7 +10,9 @@ public class Candy extends Item {
 	}
 
 	// METHOD: MESSAGE SOUND
-	public String messageSound() {
-		return (super.getCategory() + " Munch Munch, Yum!");
+	public void messageSound() {
+		System.out.println( "Munch Munch, Yum!");
 	}
 }
+//public String messageSound() {
+	//return (super.getCategory() + " Munch Munch, Yum!");

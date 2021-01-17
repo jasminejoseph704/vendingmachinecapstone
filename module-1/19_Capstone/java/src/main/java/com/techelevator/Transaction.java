@@ -1,18 +1,19 @@
 package com.techelevator;
 
 import java.math.BigDecimal;
+
 import java.util.Scanner;
 import com.techelevator.view.*;
 
 public class Transaction {
 
-	public int balance;
+	
 
 	public Transaction() {
 
 	}
-
-	public int getBalance() {
+	private BigDecimal balance = new BigDecimal(0) ;
+	public BigDecimal getBalance() {
 		return balance;
 	}
 
@@ -21,12 +22,22 @@ public class Transaction {
 			Scanner scanner = new Scanner(System.in);
 			System.out.print("Please input money in dollar amount of $1, $2, $5, or $10: ");
 			String moneyInputAsString = scanner.nextLine();
-			Integer moneyInput = Integer.parseInt(moneyInputAsString);
-			if (moneyInput == 1 || moneyInput == 2 || moneyInput == 5 || moneyInput == 10) {
+			//Integer moneyInput = Integer.parseInt(moneyInputAsString);
+			BigDecimal moneyInput =  new BigDecimal(moneyInputAsString);
+					
+			BigDecimal bg1 = new BigDecimal("1");
+			BigDecimal bg2 = new BigDecimal("2");
+			BigDecimal bg3 = new BigDecimal("5");
+			BigDecimal bg4 = new BigDecimal("10");
+			
+			if (moneyInput.equals(bg1) | moneyInput.equals(bg2) | moneyInput.equals(bg3) | moneyInput.equals(bg4)){
 				System.out.println("\n");
-				balance += moneyInput;
-			} else if (moneyInput != 1 || moneyInput == 2 || moneyInput == 5 || moneyInput == 10)
-				System.out.println("You may only input money in dollar amounts of $1, $2, $5,or $10: ");
+				
+				balance = balance.add(moneyInput);
+								
+			} else 
+			//(moneyInput != 1 || moneyInput == 2 || moneyInput == 5 || moneyInput == 10)
+				System.out.println(" ");
 		} catch (NumberFormatException e) {
 			System.out.println("You may only input money in dollar amounts of $1, $2, $5,or $10: ");
 		}

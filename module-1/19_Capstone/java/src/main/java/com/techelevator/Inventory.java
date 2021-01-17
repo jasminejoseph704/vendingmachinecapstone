@@ -14,6 +14,10 @@ public class Inventory {
 	private List<Item> inventory = new ArrayList<Item>();
 
 	Transaction balance = new Transaction();
+	Candy candy = new Candy(null, null, null, null);
+	Chips chips = new Chips(null, null, null, null);
+	Drink drink = new Drink(null, null, null, null);
+	Gum gum = new Gum(null, null, null, null);
 	{
 	}
 	Item item = new Item(null, null, null, null);
@@ -32,14 +36,22 @@ public class Inventory {
 		Scanner itemScanner = new Scanner(System.in);
 		System.out.print("Please input a slot id: ");
 		String slotIdString = itemScanner.nextLine();
+
 		for (Item item : inventory) {
 			if (slotIdString.equalsIgnoreCase(item.getSlotId())) {
-				System.out.println("The item you have selcted is " + item.getSlotId() + " | " + item.getProductName()
-				+ "| " + item.getPrice() + "| " + "Qty: " + item.getQuantity());
-			
+
+				System.out.println("The item you have selected is " + item.getSlotId() + " | " + item.getProductName()
+						+ "| " + item.getPrice() + "| " + "Qty: " + item.getQuantity());
+				if (item.getCategory().equalsIgnoreCase("Candy")) {
+			    candy.messageSound();
+			} else if (item.getCategory().equalsIgnoreCase("Chips")) {
+				chips.messageSound();
+			} else if (item.getCategory().equalsIgnoreCase("Drink")){
+				drink.messageSound();
 			}
-			
+			else gum.messageSound();
 		}
+	}
 	}
 
 	// public void getItem(String slotId) {
