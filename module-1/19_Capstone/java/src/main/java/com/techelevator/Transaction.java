@@ -12,11 +12,26 @@ public class Transaction {
 	public Transaction() {
 
 	}
-	private BigDecimal balance = new BigDecimal(0) ;
-	private BigDecimal moneyInput = new BigDecimal(0);
-	public BigDecimal getMoneyInput() {
-		return moneyInput;
+	
+
+	private static BigDecimal balance = new BigDecimal(0) ;
+	
+	Item item = new Item(null, null, balance, null);
+	
+	private BigDecimal newBalance = new BigDecimal(0);
+	
+	public BigDecimal getNewBalance() {
+		return newBalance;
 	}
+
+	public void setNewBalance(BigDecimal newBalance) {
+		this.newBalance = newBalance;
+	}
+
+	//private BigDecimal moneyInput = new BigDecimal(null);
+	//public BigDecimal getMoneyInput() {
+		//return moneyInput;
+	//}
 	public BigDecimal getBalance() {
 		return balance;
 	}
@@ -37,7 +52,7 @@ public class Transaction {
 			if (moneyInput.equals(bg1) | moneyInput.equals(bg2) | moneyInput.equals(bg3) | moneyInput.equals(bg4)){
 				System.out.println("\n");
 				
-				balance = balance.add(moneyInput);
+				 balance =  balance.add(moneyInput);
 								
 			} else 
 			//(moneyInput != 1 || moneyInput == 2 || moneyInput == 5 || moneyInput == 10)
@@ -46,9 +61,25 @@ public class Transaction {
 			System.out.println("You may only input money in dollar amounts of $1, $2, $5,or $10: ");
 		}
 	}
- 
-}
 
+ public static boolean purchase(BigDecimal price) {
+	 if (balance.subtract(price).signum() >= 0) {
+     balance = balance.subtract(price);
+     return true;
+	 }else {
+		 return false;
+	 }
+ }
+}
+/*** METHOD: DELIVER ITEM
+ *  public boolean getItem(String slotID) { // Go through all items until finding the chosen one,
+ *   then deduct the cost and return
+	 * true only if there // is enough balance. for (ProductDetail item :
+	 * category.getItem()) { if (item.getslotID().equals(slotID)) { if (balance >=
+	 * item.getPrice()) { balance -= item.getPrice(); return true; } else { return
+	 * false; } } } return false; }
+//if(item.getPrice().compareTo(balance.getBalance())==1);
+// BigDecimal newBalance = balance;
 /**
  * 
  *   category.getItem()) { if (item.getslotID().equals(slotID)) { if (balance >=
