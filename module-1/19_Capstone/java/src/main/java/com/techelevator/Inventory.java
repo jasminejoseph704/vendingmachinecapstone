@@ -12,8 +12,9 @@ public class Inventory {
 
 	// Is this an: INSTANCE VARIABLE "Attribute" ?
 	private List<Item> inventory = new ArrayList<Item>();
+	private BigDecimal newBalance = new BigDecimal(0);
 
-	Transaction balance = new Transaction();
+	Transaction transaction = new Transaction();
 	Candy candy = new Candy(null, null, null, null);
 	Chips chips = new Chips(null, null, null, null);
 	Drink drink = new Drink(null, null, null, null);
@@ -42,41 +43,31 @@ public class Inventory {
 
 				System.out.println("The item you have selected is " + item.getSlotId() + " | " + item.getProductName()
 						+ "| " + item.getPrice() + "| " + "Qty: " + item.getQuantity());
-				if (item.getCategory().equalsIgnoreCase("Candy")) {
-					//balance.purchase(item.getPrice());
-					//if(balance.getBalance().compareTo(item.getPrice())==1) {
-						
-				      //BigDecimal  newBalance = (balance.getBalance().subtract(item.getPrice()));
-				      //  System.out.println(newBalance);
-					
-					
-					
-					
-					//balance.updateBalance();
-					//if(balance.getBalance().compareTo(item.getPrice())==1);
-					//if(item.getPrice().compareTo(balance.getBalance())==1);
-	            //BigDecimal newBalance = balance.getBalance();
-	           // System.out.println(newBalance);
-	            //BigDecimal newsBalance = (balance.getBalance().subtract(item.getPrice()));
-			    candy.messageSound();
-			    //System.out.println("Your current balance is: "+ balance.getBalance());
-			} else if (item.getCategory().equalsIgnoreCase("Chips")) {
-			
-				chips.messageSound();
-			} else if (item.getCategory().equalsIgnoreCase("Drink")){
-				drink.messageSound();
+
+				boolean purchaseSuccessful = Transaction.purchase(item.getPrice());
+				System.out.println("Your current balance is: " + transaction.getBalance());
+				if (purchaseSuccessful) {
+					if (item.getCategory().equalsIgnoreCase("Candy")) {
+
+						candy.messageSound();
+
+					} else if (item.getCategory().equalsIgnoreCase("Chip")) {
+
+						chips.messageSound();
+
+					} else if (item.getCategory().equalsIgnoreCase("Drink")) {
+
+						drink.messageSound();
+
+					} else {
+						gum.messageSound();
+					}
+				} else {
+					System.out.println("Not enough money");
+				}
 			}
-			else gum.messageSound();
 		}
 	}
-	}
-	
-	
-	
-	// public void getItem(String slotId) {
-	// for (Item item : inventory) {
-	// if (slotId.equalsIgnoreCase(item.getSlotId())) {
-	// System.out.println("Items available: ");
 
 	// METHOD: PRINTALL() METHOD
 	public void printAll() {
@@ -86,6 +77,3 @@ public class Inventory {
 		}
 	}
 }
-
-//String getProductName(Item item) {
-//return item.getSlotId() + "" + item.getProductName() + "" + item.getPrice();

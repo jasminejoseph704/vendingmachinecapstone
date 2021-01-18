@@ -50,7 +50,7 @@ public class VendingMachineLoader {
 		}
 	}
 	
-	//JASMINE, WHAT DOES THIS METHOD DO FOR US: READS THE CSV FILE
+	
 	public Inventory loadInventory() {
 		List<Item> temp = new ArrayList<Item>();
 		try (Scanner fileScanner = new Scanner(this.inputFile)) {

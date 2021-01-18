@@ -1,9 +1,11 @@
 package com.techelevator;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.techelevator.view.Item;
 import com.techelevator.view.Menu;
 import com.techelevator.view.PurchaseMenu;
 
@@ -24,6 +26,7 @@ public class VendingMachineCLI {
 
 	// INSTANCE VARIABLES "Attributes"
     Transaction balance = new Transaction();
+   
     
 	private Menu menu;
 	private PurchaseMenu purchaseMenu;
@@ -61,9 +64,11 @@ public class VendingMachineCLI {
 						inventory.printAll();
 						System.out.print("\n");
 						inventory.getItem(purchaseChoice);
-						// call slotId
+						
 					} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 						// receive change
+						balance.giveChange();
+					
 					}
 				}
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
