@@ -16,6 +16,8 @@ public class Transaction {
 	static Item item = new Item(null, null, balance, null);
 
 	private static BigDecimal newBalance = new BigDecimal(0);
+	
+	static Log log = new Log();
 
 	public BigDecimal getNewBalance() {
 		return newBalance;
@@ -42,7 +44,7 @@ public class Transaction {
 				System.out.println("\n");
 
 				balance = balance.add(moneyInput);
-
+				 log.logFeed(moneyInput, balance);
 			} else
 				// (moneyInput != 1 || moneyInput == 2 || moneyInput == 5 || moneyInput == 10)
 				System.out.println(" ");
@@ -54,6 +56,7 @@ public class Transaction {
 	public static boolean purchase(BigDecimal price) {
 		if (balance.subtract(price).signum() >= 0) {
 			balance = balance.subtract(price);
+			log.logPurchase( "PURCHASE ", item, balance);
 			return true;
 		} else {
 			return false;
@@ -61,7 +64,7 @@ public class Transaction {
 	}
 
 	public void giveChange() {
-		String returnString = "Change due: ";
+		String returnChange = "Change due: ";
 		if (balance.signum() > 0) {
 			int[] coinsArray = new int[4];
 			int tempBalance = (int) (balance.doubleValue() * 100);
@@ -71,14 +74,15 @@ public class Transaction {
 				if (tempBalance > 0) {
 					coinsArray[i] = (int) (tempBalance / coinValue[i]);
 					tempBalance -= coinsArray[i] * coinValue[i];
-					returnString += coinsArray[i] + " " + coins[i] + " ";
+					returnChange += coinsArray[i] + " " + coins[i] + " ";
 				}
 			}
-			System.out.println(returnString);
+			System.out.println(returnChange);
 		} else {
 			System.out.println("No change due");
 		}
 		// log change given method
+		log.logChange(returnChange, getBalance());
 		balance = BigDecimal.valueOf(0.00);
 	}
 
