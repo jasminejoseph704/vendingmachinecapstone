@@ -18,7 +18,7 @@ public class Log {
 	 private final File outputFile = new File("Log.txt");
 
 	    public void logPurchase(String slotId, Item item, BigDecimal Balance) {
-	        String event = item.getProductName() + " " + slotId;
+	        String event = item.getProductName() + " " + item.getSlotId();
 	        String entry = buildLogEntryString(event, Balance, Balance);
 
 	        printToFile(entry);
